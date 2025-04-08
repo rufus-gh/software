@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dev.dictionary</title>
+  <link rel="stylesheet" href="styles/kbd.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" id='highlight-theme'>
+
+  <!-- Marked.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.0.0/marked.min.js"></script>
+
+  <!-- Prism.js Core + Autoloader -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body>
+  <div class="to-top"><i class="bx bx-chevron-up"></i></div>
+  <div class="sidebar">
+    <div class="logo">
+      <h4><span>/</span>dev.dictionary</h4>
+    </div>
+    <div class="wrapper">
+      <div class="menu">
+        <ul>
+          <div class="contained">
+            <li class="dropdown">
+              <a href="#" class="drop-text" data-content="nothing"><i class='bx bx-code-alt'
+                  style="color: #ea76ff"></i>&nbsp;Web
+                Technologies</a>
+              <div class="tick-wrapper">
+                <div class="tick-holder">
+                  <i id="rotate" class="bx bx-chevron-up"></i>
+                </div>
+              </div>
+            </li>
+            <li><a href="#" data-content="frontend-web-dev">Frontend Web Dev</a></li>
+            <li><a href="#" data-content="backend-web-dev">Backend Web Dev</a></li>
+            <li><a href="#" data-content="pwas">PWAs</a></li>
+            <li><a href="#" data-content="http-vs-https">HTTP vs HTTPS</a></li>
+            <li><a href="#" data-content="dns">DNS</a></li>
+            <li><a href="#" data-content="ftp-vs-sftp">FTP vs SFTP</a></li>
+          </div>
+          <div class="contained">
+            <li class="dropdown">
+              <a href="#" class="drop-text" data-content="nothing"><i class='bx bxs-lock-alt'
+                  style="color: #FF5722"></i>&nbsp;Security</a>
+              <div class="tick-wrapper">
+                <div class="tick-holder">
+                  <i id="rotate" class="bx bx-chevron-up"></i>
+                </div>
+              </div>
+            </li>
+            <li><a href="#" data-content="encryption-keys">Encryption Keys</a></li>
+            <li><a href="#" data-content="hash-values">Hash Values</a></li>
+            <li><a href="#" data-content="digital-signatures">Digital Signatures</a></li>
+            <li><a href="#" data-content="ssl-certs">SSL Certs</a></li>
+            <li><a href="#" data-content="tls">TLS</a></li>
+          </div>
+          <div class="contained">
+            <li class="dropdown">
+              <a href="#" class="drop-text" data-content="nothing"><i class='bx bx-network-chart'
+                  style="color: #42A5F5"></i>&nbsp;Networking</a>
+              <div class="tick-wrapper">
+                <div class="tick-holder">
+                  <i id="rotate" class="bx bx-chevron-up"></i>
+                </div>
+              </div>
+            </li>
+            <li><a href="#" data-content="tcp-ip">TCP/IP</a></li>
+            <li><a href="#" data-content="smtp-pop3-imap">SMTP vs POP3 vs IMAP</a></li>
+            <li><a href="#" data-content="data-packets">Data Packets</a></li>
+          </div>
+          <div class="contained">
+            <li class="dropdown">
+              <a href="#" class="drop-text" data-content="nothing"><i class='bx bx-data'
+                  style="color: #FFB74D"></i>&nbsp;Data Management</a>
+              <div class="tick-wrapper">
+                <div class="tick-holder">
+                  <i id="rotate" class="bx bx-chevron-up"></i>
+                </div>
+              </div>
+            </li>
+            <li><a href="#" data-content="data-mining">Data Mining</a></li>
+            <li><a href="#" data-content="metadata">Metadata</a></li>
+            <li><a href="#" data-content="ssm">SSM</a></li>
+            <li><a href="#" data-content="orm-vs-sql">ORM vs SQL</a></li>
+          </div>
+
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </ul>
+      </div>
+    </div>
+
+    <div class="fade-out"></div>
+  </div>
+  <div class="overlay"></div>
+  <div class="left-content">
+    <div class="progress"></div>
+    <div class="scroll-wrapper">
+      <div class="scroll-content">
+        <div class="topbar">
+          <div class="small-screen">
+            <div class="hamburger"><i class="bx bx-menu"></i></div>
+            <div class="logo">
+              <h4><span>/</span>dev.dictionary</h4>
+            </div>
+          </div>
+          <div class="searchbar">
+            <i class="bx bx-search"></i>
+            <input autocomplete="off" type="text" name="search" id="search" placeholder="Search..."
+              oninput="updateClearBtn();searchFiles();" />
+            <div class="edge-wrapper">
+              <div class="keys">
+                <!----><kbd class="kbd kbd-sm">ctrl</kbd>
+                <kbd class="kbd kbd-sm">K</kbd>
+                <!---->
+              </div>
+              <div class="clear" onclick="clearSearch()">
+                <i class="bx bx-x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="results"></div>
+          <div class="settings">
+            <div class="account">
+              <i class="bx bx-user-circle"></i>
+              <p>&nbsp;
+                george
+              </p>
+            </div>
+            <div class="theme-toggle" onclick="themeToggle(this)">
+              <i class="bx bx-sun"></i>
+            </div>
+            <div class="logout-btn" onclick="logoutBtn()"><i class="bx bx-log-out"></i></div>
+          </div>
+        </div>
+        <div class="main-content">
+
+        </div>
+        <br />
+        <div class="hr"></div>
+        <div class="pagination">
+          <div class="pg-btn back-page">
+            <i class="bx bx-chevron-left"></i>
+            <div class="text">
+              <p>Prev</p>
+              <h4>Backend Web Dev</h4>
+            </div>
+          </div>
+          <div class="pg-btn forward-page">
+            <div class="text">
+              <p>Next</p>
+              <h4>HTTP vs HTTPS</h4>
+            </div>
+            <i class="bx bx-chevron-right"></i>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <br />
+        <div class="footer">
+          <div>
+            <span>By Rufus Gordon-Heywood</span>
+            <a href="https://github.com/rufus-gh/" target="_blank"><i class="bx bxl-github"></i></a>
+          </div>
+          <div class="langs">
+            <span>Made with:</span>
+            <i class="bx bxl-html5"></i>
+            <i class="bx bxl-css3"></i>
+            <i class="bx bxl-javascript"></i>
+            <i class="bx bxl-php"></i>
+            <i class="bx bxl-tailwind-css"></i>
+            <img class="daisy" src="img/daisyui.svg" />
+            <i class="bx bxl-visual-studio"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.min.js"
+    integrity="sha512-Ll+TuDvrWDNNRnFFIM8dOiw7Go7dsHyxRp4RutiIFW/wm3DgDmCnRZow6AqbXnCbpWu93yM1O34q+4ggzGeXVA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/page-loader.js"></script>
+  <script src="scripts/search.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: "Inter", serif;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+section {
+    min-height: 100vh;
+}
+
+.top {
+    background-color: #0F0F0F;
+}
+
+.logo {
+    color: #D9D9D9;
+    font-size: 4.5rem;
+    font-weight: 900;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    transition: top 0.3s;
+    
+}
+
+.emphasised {
+    color: #57F2AA;
+}
+
+.circle {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(45,45,45,0.5);
+    border-radius: 50%;
+}
+
+.circle-1 {
+    width: 430px;
+    height: 430px;
+}
+
+.circle-2 {
+    width: 600px;
+    height: 600px;
+}
+
+.circle-3 {
+    width: 800px;
+    height: 800px;
+}
+
+.circle-4 {
+    width: 1000px;
+    height: 1000px;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    width: 200px;
+    height: 75px;
+    background-color: #57F2AA;
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    user-select: none;
+}
+
+.scroll-btn:hover {
+    background-color: #7af5bb;
+}
+
+.scroll-sign {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(45,45,45,0.5);
+    color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out infinite;
+    opacity: 0.3;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    transition: opacity 0.3s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+
+    50% {
+        transform: translate(-50%, calc(-50% + 20px));
+    }
+}
+
+.grad {
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.1));
+}
+
+/* sidebar */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
